@@ -8,6 +8,7 @@ const token =
 
 const form = document.getElementById("backoffice-form");
 const delBtn = document.getElementById("delete-btn");
+const resetBtn = document.getElementById("reset-btn");
 const subtitle = document.getElementById("subtitle");
 
 if (id) {
@@ -85,9 +86,11 @@ delBtn.addEventListener("click", function () {
   }
 });
 
-const resetBtn = document.getElementById("reset-btn");
-
 resetBtn.addEventListener("click", function () {
+  const confermaReset = confirm("Sei sicuro di voler resettare il modulo? Eventuali modifiche andranno perse.");
+
+  if (!confermaReset) return;
+
   form.reset();
 
   if (id) {
