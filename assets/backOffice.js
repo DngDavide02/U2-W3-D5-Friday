@@ -84,3 +84,25 @@ delBtn.addEventListener("click", function () {
       });
   }
 });
+
+const resetBtn = document.getElementById("reset-btn");
+
+resetBtn.addEventListener("click", function () {
+  form.reset();
+
+  if (id) {
+    fetch(endpoint + id, { headers: { Authorization: token } })
+      .then((res) => res.json())
+      .then((product) => {
+        document.getElementById("name").value = product.name;
+        document.getElementById("description").value = product.description;
+        document.getElementById("brand").value = product.brand;
+        document.getElementById("URL").value = product.imageUrl;
+        document.getElementById("price").value = product.price;
+      })
+      .catch((err) => {
+        console.error("Errore nel reset:", err);
+        alert("Impossibile ricaricare i dati originali.");
+      });
+  }
+});
