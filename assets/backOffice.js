@@ -11,7 +11,7 @@ const delBtn = document.getElementById("delete-btn");
 const subtitle = document.getElementById("subtitle");
 
 if (id) {
-  subtitle.innerText = "— Modifica prodotto";
+  subtitle.innerText = "Modifica prodotto";
   delBtn.classList.remove("d-none");
 
   fetch(endpoint + id, { headers: { Authorization: token } })
@@ -28,7 +28,7 @@ if (id) {
       alert("Impossibile caricare i dati del prodotto.");
     });
 } else {
-  subtitle.innerText = "— Nuovo prodotto";
+  subtitle.innerText = "Nuovo prodotto";
 }
 
 form.addEventListener("submit", function (e) {
